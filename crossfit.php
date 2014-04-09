@@ -36,7 +36,7 @@ for($page =1; $page <= $TOTAL_PAGES; $page++)
 	echo "Page: {$page}\r\n";
 }
 
-fclose ($fp);
+fclose($fp);
 
 $end_time = microtime(true);
 $elapsed_time_micro_seconds = ($end_time - $start_time);
