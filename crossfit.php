@@ -2,8 +2,8 @@
 require_once('libraries/phpQuery-onefile.php');
 $start_time = microtime(true);
 
-$TOTAL_PAGES = 868; //total  # pages for men 1339;. //total for women 
-$GENDER = 'female'; // or female
+$TOTAL_PAGES = 868; //total for women //total  # pages for men 1339;. 
+$GENDER = 'female'; // or male
 
 $fp = fopen("stats-{$GENDER}.csv", "w");
 fputcsv($fp, array('Overall Rank','Score','Name', '#1 Rank', '#1 Score', '#2 Rank', '#2 Score', '#3 Rank', '#3 Score', '#4 Rank', '#4 Score', '#5 Rank', '#5 Score','#5 Time in seconds'));
