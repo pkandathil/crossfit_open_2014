@@ -4,12 +4,12 @@ $start_time = microtime(true);
 
 $TOTAL_PAGES = 868; //total for women //total  # pages for men 1339;. 
 $GENDER = 'female'; // or male
+$GET_DATA_FROM_FILE = false;
 
 $fp = fopen("stats-{$GENDER}.csv", "w");
 fputcsv($fp, array('Overall Rank','Score','Name', '#1 Rank', '#1 Score', '#2 Rank', '#2 Score', '#3 Rank', '#3 Score', '#4 Rank', '#4 Score', '#5 Rank', '#5 Score','#5 Time in seconds'));
 
-for($page =1; $page <= $TOTAL_PAGES; $page++)
-{
+for($page =1; $page <= $TOTAL_PAGES; $page++) {
 	$html = get_data($page);
 	phpQuery::newDocument($html);
 
@@ -49,7 +49,12 @@ echo 'seconds'; die;
 * @return string HTML data
 */
 function get_data($page) {
-	global $GENDER;
+	global $GENDER, $GET_DATA_FROM_FILE;
+
+	if($GET_DATA_FROM_FILE) {
+		return file_get_contents('stats-html-page-1-raw.html', 'r');
+	}
+
 	$gender = strtolower($GENDER);
 	if(strcmp('male', $gender) === 0){
 		$division = 1;
