@@ -41,7 +41,8 @@ fclose($fp);
 $end_time = microtime(true);
 $elapsed_time_micro_seconds = ($end_time - $start_time);
 echo $elapsed_time_micro_seconds;
-echo 'seconds'; die;
+echo " seconds \r\n"; 
+die;
 
 /**
 * Returns the HTML from games.crossfit.com/leaderboard
